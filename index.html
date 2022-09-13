@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Game of Life</title>
+        <meta name="description" content="The game of life simulation" />
+        <script
+            src="https://kit.fontawesome.com/4093632a17.js"
+            crossorigin="anonymous"
+        ></script>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="./css/main.css" />
+    </head>
+    <body>
+        <div class="overlay hide">
+            <div class="overlay__library-container hide">
+                <i class="far fa-times-circle overlay__library-exit-button"></i>
+                <div class="overlay__library-item-container">
+                    <img
+                        src="./images/handshake.png"
+                        alt=""
+                        class="overlay__library-img overlay__library-img--handshake"
+                    />
+                </div>
+                <div class="overlay__library-item-container">
+                    <img
+                        src="./images/diamond.png"
+                        alt=""
+                        class="overlay__library-img overlay__library-img--diamond"
+                    />
+                </div>
+                <div class="overlay__library-item-container">
+                    <img
+                        src="./images/gliders-dozen.png"
+                        alt=""
+                        class="overlay__library-img overlay__library-img--gliders-dozen"
+                    />
+                </div>
+            </div>
+            <div class="overlay__info-container hide">
+                <i class="far fa-times-circle overlay__info-exit-button"></i>
+                <h2 class="overlay__info-title">The Game Of Life</h2>
+                <h3 class="overlay__info-subtitle">By John Conway</h3>
+                <p class="overlay__info-description">
+                    The Game of Life, also known simply as Life, is a cellular
+                    automaton devised by the British mathematician John Horton
+                    Conway in 1970. It is a zero-player game, meaning that its
+                    evolution is determined by its initial state, requiring no
+                    further input. One interacts with the Game of Life by
+                    creating an initial configuration and observing how it
+                    evolves.
+                </p>
+                <h3 class="overlay__info-rules-subtitle">Rules</h3>
+                <ol class="overlay__rules-ul">
+                    <li>
+                        Any live cell with fewer than two live neighbours dies,
+                        as if by underpopulation.
+                    </li>
+                    <li>
+                        Any live cell with two or three live neighbours lives on
+                        to the next generation.
+                    </li>
+                    <li>
+                        Any live cell with more than three live neighbours dies,
+                        as if by overpopulation.
+                    </li>
+                    <li>
+                        Any dead cell with exactly hree live neighbours becomes
+                        a live cell, as if by reproduction.
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <header class="header">
+            <i class="fas fa-book-open header__icon header__icon--library"></i>
+            <h1 class="header__title">Game Of Life</h1>
+            <i
+                class="far fa-question-circle header__icon header__icon--info"
+            ></i>
+        </header>
+
+        <main class="main">
+            <div class="main__grid-container"></div>
+            <div class="main__controls-container">
+                <button class="button main__start-button">Start</button>
+                <button class="button main__stop-button hide">Stop</button>
+                <div class="main__range-container">
+                    <span class="main__range-title"
+                        >Grid side:
+                        <span class="main__range-value">10</span></span
+                    >
+                    <input
+                        value="10"
+                        min="10"
+                        max="60"
+                        step="10"
+                        type="range"
+                        name=""
+                        id=""
+                        class="main__grid-size-range"
+                    />
+                </div>
+                <div class="main__speed-container">
+                    <span class="main__speed-title">Speed:</span>
+                    <input
+                        value="50"
+                        min="50"
+                        max="500"
+                        step="50"
+                        type="range"
+                        name=""
+                        id=""
+                        class="main__speed-range"
+                    />
+                </div>
+                <button class="button main__clear-button">Clear</button>
+                <button class="button main__random-button">Random</button>
+            </div>
+        </main>
+
+        <script type="module" src="./functions/buildInitialGrid.js"></script>
+        <script
+            type="module"
+            src="./functions/setInitialLivingCells.js"
+        ></script>
+        <script type="module" src="./functions/nextEraGrid.js"></script>
+        <script type="module" src="./functions/nextEraGridv2.js"></script>
+        <script type="module" src="./functions/DOMbuildGrid.js"></script>
+    </body>
+</html>

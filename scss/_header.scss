@@ -1,0 +1,44 @@
+@use 'variables';
+
+.header {
+    height: 90px;
+    background-color: variables.$secondary-color;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+
+    &__title {
+        font-family: Arial, sans-serif;
+        color: variables.$tertiary-color;
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    &__icon {
+        color: variables.$tertiary-color;
+        font-size: 2rem;
+        cursor: pointer;
+        transition: 0.3s ease all;
+
+        &:hover {
+            color: variables.$primary-color;
+            transition: 0.3s ease all;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .header {
+        &__title {
+            font-size: 1.5rem;
+        }
+
+        &__icon {
+            font-size: 1.5rem;
+
+            &:hover {
+            }
+        }
+    }
+}
